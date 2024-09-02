@@ -1,0 +1,17 @@
+<style>
+    .loader {
+        position: absolute;
+        z-index: 1000;
+        background-color: #1c1c215e !important;
+    }
+    .loader .spinner-border {
+        width: 7rem;
+        height: 7rem;
+    }
+</style>
+<!--begin::Page loading(append to body)-->
+<div class="loader flex-column bg-dark bg-opacity-25 justify-content-center align-items-center w-100 h-100 d-none" id="loader">
+    <span class="spinner-border text-primary" role="status"></span>
+    <span class="text-gray-800 fs-6 fw-semibold mt-5">Votre observation est en cours de traitement.</span>
+</div>
+<!--end::Page loading-->

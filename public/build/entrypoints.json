@@ -1,0 +1,44 @@
+{
+  "entrypoints": {
+    "app": {
+      "js": [
+        "/build/runtime.725dd7e0.js",
+        "/build/185.ab01bc8a.js",
+        "/build/846.ed224955.js",
+        "/build/app.7d129052.js"
+      ],
+      "css": [
+        "/build/846.bf002937.css",
+        "/build/app.a90da912.css"
+      ]
+    },
+    "security_register": {
+      "js": [
+        "/build/runtime.725dd7e0.js",
+        "/build/185.ab01bc8a.js",
+        "/build/security_register.fb54ca9d.js"
+      ]
+    },
+    "parametre_user": {
+      "js": [
+        "/build/runtime.725dd7e0.js",
+        "/build/185.ab01bc8a.js",
+        "/build/parametre_user.3d61e9b5.js"
+      ]
+    },
+    "pointage": {
+      "js": [
+        "/build/runtime.725dd7e0.js",
+        "/build/185.ab01bc8a.js",
+        "/build/pointage.6452e9cf.js"
+      ]
+    },
+    "synchronisation": {
+      "js": [
+        "/build/runtime.725dd7e0.js",
+        "/build/185.ab01bc8a.js",
+        "/build/synchronisation.67137135.js"
+      ]
+    }
+  }
+}

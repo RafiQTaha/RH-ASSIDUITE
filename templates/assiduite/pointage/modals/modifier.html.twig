@@ -1,0 +1,45 @@
+<style>
+	#modifier_modal span {
+		font-size: 12px !important;
+	}
+</style>
+<div class="modal right come-from-modal fade" id="modifier_modal" aria-labelledby="modal-default" style="display: none;" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-top" style="width:40%;max-width:1000px !important" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h2 class="modal-title">Modifier Stage</h2>
+				<a type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></a>
+			</div>
+			<div class="modal-body">
+				<form id="modifier_stage" autocomplete="off"  class="mt-4">
+					<div class="row">
+						<div class="col-sm-12 b-r">
+							<div class="form-group mb-4">
+								<label for="designation">Designation</label>
+								<div class="input-group">
+									<span class="input-group-text" id="basic-addon1">
+										<i class="fa-solid fa-pen-to-square"></i>
+									</span>
+									<input type="text" name="designation" class="form-control" placeholder="Designation" id="designation" autofocus required>
+								</div>
+							</div>
+							<div class="form-group mb-4">
+								<label for="abreviation">Abreviation</label>
+								<div class="input-group">
+									<span class="input-group-text" id="basic-addon1">
+										<i class="fa-solid fa-pen-to-square"></i>
+									</span>
+									<input type="text" name="abreviation" class="form-control" placeholder="Abreviation" id="abreviation">
+								</div>
+							</div>
+						</div>
+						<div class="d-grid">
+							<button type="submit" class="btn btn-gray-800">Modifier</button>
+						</div>
+					</div>
+				</form>
+			</div>
+
+		</div>
+	</div>
+</div>

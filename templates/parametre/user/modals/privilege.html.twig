@@ -1,0 +1,46 @@
+<div class="modal right come-from-modal fade" id="privillege-modal" aria-labelledby="modal-default" style="display: none;" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-top" style="width:30%;max-width:1000px !important" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h2 class="modal-title">Ajouter privilege</h2>
+				<a role="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></a>
+			</div>
+			<div class="modal-body">
+				<div class="privilege">
+					<ul>
+						<span><input type="checkbox" class="tous"/>
+							Tous</span>
+						<div class="privilege__list">
+							{% for module in modules %}
+								<li role="button">
+									<h4 class="Collapsable modules">
+										<input type="checkbox" data-id="{{module.id}}" class="inputModule"/>
+										{{module.designation}}</h4>
+									<ul style="display:none">
+										{% for sousModule in module.sousModules %}
+											<li role="button">
+												<span class="Collapsable sousModules" style="font-size:14px"><input type="checkbox" data-module="{{sousModule.id}}" class="inputSousModule"/>
+													{{sousModule.designation}}</span>
+												<ul style="display:none" class="listOfButtons">
+													{% for operation in sousModule.operations %}
+														<li role="button" for="operation-{{operation.id}}">
+															<span class="Collapsable buttons">
+																<input type="checkbox" id="operation-{{operation.id}}" class="{{operation.id}} inputOperation" data-operation="{{operation.id}}"/>
+																{{operation.designation}}</span>
+														</li>
+													{% endfor %}
+												</ul>
+											</li>
+										{% endfor %}
+
+									</ul>
+								</li>
+							{% endfor %}
+						</div>
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

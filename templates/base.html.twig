@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head> 
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        {# <link rel="icon" type="image/png" sizes="32x32" href="{{asset('assets/images/favicon-32x32.png')}}"> #}
+        <link rel="icon" type="image/png"  href="{{asset('assets/images/favicon.ico')}}">
+        <title>{% block title %}FCZ - RH - ASSIDUITE{% endblock %}</title>
+
+
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+            {# <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> #}
+            {# <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script> #}
+            {# <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> #}
+        {% endblock %}
+        <style>
+            html{
+                text-transform: uppercase;
+            }
+        </style>
+    </head>
+
+    <body class="d-flex flex-column min-vh-100">
+        {% include 'includes/sidebar.html.twig' %}
+        <main class="content flex-grow-1">
+            {% include 'includes/navbar.html.twig' %}
+            {% block body %}{% endblock %}
+        </main>
+        {% include "includes/footer.html.twig" %}
+    </body>
+</html>

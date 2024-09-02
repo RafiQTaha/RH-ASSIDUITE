@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{# {% block title %}JDB - Gestion Des Stages{% endblock %} #}
+
+
+{% block body %}
+
+	{% include 'includes/actions.html.twig' with {'moduleName': 'Gestion Des Stages'} %}
+	<div class="col-12 mb-4">
+		<div class="card border-0 shadow">
+			<div class="card-body p-2 m-2">
+				<div class="card-search" style="margin-bottom: 1.5rem;">
+					<div class="row">
+						<div class="col-md-2">
+							<label for="Date">Date:</label>
+							<input type="date" value={{lastdatesync|date('Y-m-d')}} class="form-control" name="date" id="date">
+						</div>
+						<div class="col-md-2">
+							<label for="IdEmploye">Id Employe:</label>
+							<input type="text" class="form-control" name="id_employe" id="id_employe">
+						</div>
+					</div>
+				</div>
+				<br>
+				<table id="list_pointage" class="table table-striped table-bordered" style="width:100%">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>ID Employe</th>
+							<th>Nom</th>
+							<th>Prenom</th>
+							<th>Site</th>
+							<th>codeContract</th>
+							<th>Fonction</th>
+							<th>Sn</th>
+							<th>checktime</th>
+							{# <th>UserId</th> #}
+						</tr>
+					</thead>
+					<tbody></tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	{# {% include 'assiduite/pointage/modals/ajouter.html.twig' %}
+	{% include 'assiduite/pointage/modals/modifier.html.twig' %} #}
+	{% include 'assiduite/pointage/modals/pointage_exporter_modal.html.twig' %}
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+	{{ encore_entry_script_tags('pointage') }}
+{% endblock %}

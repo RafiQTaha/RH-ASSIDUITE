@@ -1,0 +1,236 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}JDB - Sychronisation{% endblock %}
+
+{% block body %}
+{#
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> #}
+<style>
+	.checked-icon {
+		color: green;
+	}
+
+	.unchecked-icon {
+		color: red;
+	}
+
+	h3.smaller {
+		font-size: 21px
+	}
+
+	.lighter {
+		font-weight: lighter
+	}
+
+	.blue {
+		color: #478FCA !important
+	}
+
+	.header.blue {
+		border-bottom-color: #d5e3ef
+	}
+
+	.header {
+		padding-bottom: 4px;
+		border-bottom: 1px solid #CCC
+	}
+
+	.dd-dragel>li>.dd2-handle,
+	.dd2-handle {
+		left: 0;
+		top: 0;
+		width: 36px;
+		margin: 0 !important;
+		text-align: center;
+		padding: 0 !important;
+		line-height: 38px;
+		height: 38px;
+		background: #EBEDF2;
+		border: 1px solid #DEE4EA;
+		cursor: pointer;
+		overflow: hidden;
+		position: absolute;
+		z-index: 1
+	}
+
+	.dd-handle,
+	.dd2-content {
+		display: block;
+		min-height: 38px;
+		margin: 0;
+		padding: 8px 12px;
+		background: #F8FAFF;
+		border: 1px solid #DAE2EA;
+		color: #7C9EB2;
+		text-decoration: none;
+		font-weight: 700;
+		box-sizing: border-box
+	}
+
+	.dd-empty,
+	.dd-handle,
+	.dd-placeholder,
+	.dd2-content {
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box
+	}
+
+	.bigger-130 {
+		font-size: 130% !important
+	}
+
+	.grey {
+		color: #777 !important
+	}
+
+	.ace-icon {
+		text-align: center
+	}
+
+	.dd,
+	.dd-list {
+		display: block;
+		padding: 0;
+		list-style: none
+	}
+
+	.dd,
+	.dd-item>button,
+	.dd-list {
+		position: relative
+	}
+
+	@media only screen and(max-width:767px) and(-webkit-min-device-pixel-ratio:0) {
+		.ui-jqgrid .ui-jqgrid-pager>.ui-pager-control>.ui-pg-table>tbody>tr>td#grid-pager_center>.ui-pg-table {
+			width: 300px
+		}
+	}
+
+	.dd {
+		margin: 0;
+		max-width: 600px;
+		line-height: 20px
+	}
+
+	.dd-list {
+		margin: 0
+	}
+
+	.dd-list .dd-list {
+		padding-left: 30px
+	}
+
+
+	.dd2-handle+.dd2-content,
+	.dd2-handle+.dd2-content[class*=btn-] {
+		padding-left: 44px
+	}
+
+
+	.dd-empty,
+	.dd-item,
+	.dd-placeholder {
+		display: block;
+		position: relative;
+		margin: 2px 0;
+		padding: 0;
+		min-height: 20px;
+		line-height: 20px
+	}
+
+	.dd-handle:hover,
+	.dd2-content:hover {
+		color: #438EB9;
+		background: #F4F6F7;
+		border-color: #DCE2E8
+	}
+
+	.dd-handle[class*=btn-],
+	.dd2-content[class*=btn-] {
+		color: #FFF;
+		border: none;
+		padding: 9px 12px
+	}
+
+	.dd-handle[class*=btn-]:hover,
+	.dd2-content[class*=btn-]:hover {
+		opacity: .85;
+		color: #FFF
+	}
+
+	.row_ {
+		display: inline-block;
+		color: #FFF !important;
+		text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+		background-image: none !important;
+		/* border: 5px solid #FFF; */
+		border-radius: 0;
+		box-shadow: none !important;
+		-webkit-transition: background-color 0.15s, border-color 0.15s, opacity 0.15s;
+		-o-transition: background-color 0.15s, border-color 0.15s, opacity 0.15s;
+		transition: background-color 0.15s, border-color 0.15s, opacity 0.15s;
+		vertical-align: middle;
+		margin: 0;
+		position: relative;
+		background-color: #ABBAC3 !important;
+		border-color: #ABBAC3;
+	}
+</style>
+<div class="row">
+	<div class="col-md-4">
+	<div class="col-md-12">
+		<a class="btn btn-primary synchnisation_rh">
+			<i class="ace-icon fa fa-refresh align-top bigger-125"></i>
+			Sychronisation-Informations RH
+		</a>
+		{# <h3 class="header smaller lighter blue">
+			Informations Académique</h3> #}
+	</div>
+		<br />
+
+		<h3 class="header smaller lighter blue">Informations SITE & EMPLOYE</h3>
+
+	<div class="col-md-12">
+		<div class="dd dd-draghandle">
+			<ol class="dd-list">
+				<li class="dd-item dd2-item">
+					<div class="dd-handle dd2-handle">
+						<i class="syn_site normal-icon ace-icon fa fas fa-edit grey bigger-130"></i>
+					</div>
+					<div class="dd2-content">
+						Site
+						<span class="syn_site_content"></span>
+					</div>
+				</li>
+
+				<li class="dd-item dd2-item">
+					<div class="dd-handle dd2-handle">
+						<i class="syn_employe normal-icon ace-icon fa fas fa-edit grey bigger-130"></i>
+					</div>
+					<div class="dd2-content">
+						Employe
+						<span class="syn_employe_content"></span>
+					</div>
+				</li>
+
+
+				<li class="dd-item dd2-item">
+					<div class="dd-handle dd2-handle">
+						<i class="syn_contract normal-icon ace-icon fa fas fa-edit grey bigger-130"></i>
+					</div>
+					<div class="dd2-content">
+						Contract
+						<span class="syn_contract_content"></span>
+					</div>
+				</li>
+			</ol>
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+{{parent()}}
+{{ encore_entry_script_tags('synchronisation') }}
+{# {{ encore_entry_script_tags('salarie_salarie') }} #}
+{% endblock %}

@@ -1,0 +1,53 @@
+{% set getCurrentUrl = app.request.pathinfo|split('/')[1] %}
+{% set secondCurrentUrl = app.request.pathinfo|split('/')[2] %}
+<nav id="sidebarMenu" class="sidebar d-lg-block bg-gray-800 text-white" data-simplebar>
+	{# <div class="sidebar-inner px-4 pt-3"> #}
+	<div class="sidebar-inner pt-3">
+
+		<ul class="nav flex-column pt-3 pt-md-0">
+			<li class="mb-3">
+				<center>
+					<a href="{{path('app_home')}}" class="nav-link d-flex align-items-center title-sidebar">
+						<span class="sidebar-icon">
+							<img src="{{asset('assets/images/favicon-32x32.png')}}" style="filter:invert(1)" height="30" width="30" alt="Volt Logo">
+						</span>
+						<span class="mt-1 sidebar-text" style="font-size:1.2rem;margin:0 auto !important">MTSI - RH - ASSIDUITE</span>
+					</a>
+				</center>
+			</li>
+
+
+			{% for module in app.session.get('modules') %}
+				<li class="nav-item {% if getCurrentUrl == module.module.prefix %} active {% endif %}">
+					<span class="nav-link  collapsed  d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#{{module.module.prefix}}" {% if getCurrentUrl == module.module.prefix %} aria-expanded="true" {% endif %}>
+						<span>
+							<span class="sidebar-icon">
+								<i class="icon icon-xs me-2 {{module.module.icon}}"></i>
+								{# <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M2 5a2 2 0 012-2h8a2 2 0 012 2v10a2 2 0 002 2H4a2 2 0 01-2-2V5zm3 1h6v4H5V6zm6 6H5v2h6v-2z" clip-rule="evenodd"></path><path d="M15 7h1a2 2 0 012 2v5.5a1.5 1.5 0 01-3 0V7z"></path></svg> #}
+							</span>
+							<span class="sidebar-text">{{module.module.designation}}</span>
+						</span>
+						<span class="link-arrow">
+							<svg class="icon icon-sm" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+								<path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+							</svg>
+						</span>
+					</span>
+					<div class="multi-level collapse {% if getCurrentUrl == module.module.prefix %} show {% endif %} " role="list" id="{{module.module.prefix}}" aria-expanded="false">
+						<ul class="flex-column nav">
+							{% for sousModule in module.sousModule %}
+								<li class="nav-item  SecondUrl {% if getCurrentUrl == module.module.prefix and secondCurrentUrl == sousModule.prefix %} activeSecondUrl {% endif %}">
+									<a class="nav-link" href="{{path(sousModule.link)}}">
+										<span class="sidebar-text" style= "font-size: 10px;">{{sousModule.designation}}</span>
+									</a>
+								</li>
+							{% endfor %}
+						</ul>
+					</div>
+				</li>
+			{% endfor %}
+
+
+		</ul>
+	</div>
+</nav>

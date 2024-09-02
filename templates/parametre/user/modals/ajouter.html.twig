@@ -1,0 +1,103 @@
+<style>
+	#modifier_modal span {
+		font-size: 12px !important;
+	}
+</style>
+<div class="modal right come-from-modal fade" id="ajouter_modal" aria-labelledby="modal-default" style="display: none;" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-top" style="width:40%;max-width:1000px !important" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h2 class="modal-title">Ajouter User</h2>
+				<a type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></a>
+			</div>
+			<div class="modal-body">
+				<form id="ajouter_user" autocomplete="off" method="POST" class="mt-4">
+					<div class="row">
+						<div
+							class="col-sm-6 b-r">
+							<!-- Form -->
+							<div class="form-group mb-4">
+								<label for="email">Username</label>
+								<div class="input-group">
+									<span class="input-group-text" id="basic-addon1">
+										<i class="fa-solid fa-user"></i>
+									</span>
+									<input type="text" name="username" class="form-control" placeholder="p.nom" id="username" required>
+								</div>
+							</div>
+							<div class="form-group mb-4">
+								<label for="email">Nom</label>
+								<div class="input-group">
+									<span class="input-group-text" id="basic-addon1">
+										<i class="fa-solid fa-user"></i>
+									</span>
+									<input type="text" name="nom" class="form-control" placeholder="nom" id="nom" autofocus required>
+								</div>
+							</div>
+							<div class="form-group mb-4">
+								<label for="email">Prenom</label>
+								<div class="input-group">
+									<span class="input-group-text" id="basic-addon1">
+										<i class="fa-solid fa-user"></i>
+									</span>
+									<input type="text" name="prenom" class="form-control" placeholder="prenom" id="prenom" autofocus required>
+								</div>
+							</div>
+						</div>
+						<div
+							class="col-sm-6 b-r">
+							<!-- Form -->
+							<div class="form-group mb-4">
+								<label for="email">Email</label>
+								<div class="input-group">
+									<span class="input-group-text" id="basic-addon1">
+										<svg class="icon icon-xs text-gray-600" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+											<path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+											<path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+										</svg>
+									</span>
+									<input type="email" name="email" class="form-control" placeholder="example@company.com" id="email" autofocus required>
+								</div>
+							</div>
+							<!-- End of Form -->
+							<div
+								class="form-group">
+								<!-- Form -->
+								<div class="form-group mb-4">
+									<label for="password">Password</label>
+									<div class="input-group">
+										<span class="input-group-text" id="basic-addon2">
+											<svg class="icon icon-xs text-gray-600" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+												<path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path>
+											</svg>
+										</span>
+										<input type="password" name="password" placeholder="Password" class="form-control" id="password" required>
+									</div>
+								</div>
+								<!-- End of Form -->
+								<!-- Form -->
+								<div class="form-group mb-4">
+									<label for="confirm_password">Confirm Password</label>
+									<div class="input-group">
+										<span class="input-group-text" id="basic-addon2">
+											<svg class="icon icon-xs text-gray-600" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+												<path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path>
+											</svg>
+										</span>
+										<input type="password" name="passwordc" placeholder="Confirm Password" class="form-control" id="confirm_password" required>
+									</div>
+								</div>
+								<!-- End of Form -->
+
+							</div>
+							<div class="d-grid">
+								<button type="submit" class="btn btn-gray-800">Ajouter</button>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+
+		</div>
+	</div>
+</div>

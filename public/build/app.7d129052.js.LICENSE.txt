@@ -1,0 +1,29 @@
+/*!
+   Copyright 2008-2021 SpryMedia Ltd.
+
+ This source file is free software, available under the following license:
+   MIT license - http://datatables.net/license
+
+ This source file is distributed in the hope that it will be useful, but
+ WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+ or FITNESS FOR A PARTICULAR PURPOSE. See the license files for details.
+
+ For details please refer to: http://www.datatables.net
+ DataTables 1.11.5
+ ©2008-2021 SpryMedia Ltd - datatables.net/license
+*/
+
+/*!
+ DataTables Bootstrap 4 integration
+ ©2011-2017 SpryMedia Ltd - datatables.net/license
+*/
+
+/*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */
+
+/*! smooth-scroll v16.1.3 | (c) 2020 Chris Ferdinandi | MIT License | http://github.com/cferdinandi/smooth-scroll */
+
+/**
+ * Slovak translation for bootstrap-datepicker
+ * Marek Lichtner <marek@licht.sk>
+ * Fixes by Michal Remiš <michal.remis@gmail.com>
+ */

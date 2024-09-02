@@ -1,0 +1,138 @@
+<style>
+	.navbar {
+		position: relative;
+	}
+
+	.white-bg {
+		position: absolute;
+		top: 0;
+		left: -1rem;
+		width: 140%; /* Adjust the width here (e.g., 120% or any other value you like) */
+		height: 100%;
+		background-color: white;
+		z-index: -1; /* Set the z-index to -1 to place it behind the navbar content */
+	}
+
+	.bg-white {
+		background-color: white;
+		padding: 20px; /* Add padding to the div if needed */
+	}
+
+	.navbar-title {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 24px;
+		font-weight: bold;
+		text-transform: uppercase;
+		color: #333;
+		margin: 0;
+		padding: 6px;
+	}
+	.navbar-logo {
+		font-size: 16px;
+		font-weight: bold;
+	}
+	.inline-elements {
+		display: inline;
+	}
+</style>
+
+<nav class="navbar navbar-top navbar-expand navbar-dashboard navbar-dark ps-0 pe-2 pb-0">
+	<div class="white-bg"></div>
+	<div class="container-fluid px-0">
+		<div class="d-flex justify-content-between w-100" id="navbarSupportedContent">
+			<div class="d-flex align-items-center navbar-title">
+				<button id="sidebar-toggle" class="sidebar-toggle me-3 btn btn-secondary d-lg-inline-block align-items-center justify-content-center" style="z-index:1000">
+					<svg class="toggle-icon" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+						<path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h6a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+					</svg>
+				</button>
+				{# <H2 class="mb-3">Salarie</H2> #}
+				{# <div class="navbar-logo block_page"></div> #}
+
+				<!-- Search form -->
+			{# <input type="hidden" id="dossierId" value="{{app.session.get('dossier').abreviation}}" /> #}
+
+				<!-- / Search form -->
+			</div>
+			<!-- Navbar links -->
+			<ul class="navbar-nav align-items-center">
+
+				{# <div class="navbar-logo"><h2>{{app.session.get('dossier').abreviation}}</H2></div> #}
+
+				{# <a href="{{ path('app_site') }}" class="navbar-logo" style="font-size: 16px;">
+												            <div class="inline-elements">
+												              <span>
+												                    <span class="sidebar-icon">
+												                    <i class="icon icon-xs me-2 fas fa-exchange-alt"></i>
+												                                  </span> 
+												                    <span class="sidebar-text">{{ app.session.get('dossier').abreviation }}</span>
+												                  </span>
+												
+												            </div>
+												        </a> #}
+
+
+					<li class="nav-item dropdown ms-lg-3"> <a class="nav-link dropdown-toggle pt-1 px-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						<div class="media d-flex align-items-center">
+							<img class="avatar rounded-circle" alt="Image placeholder" src="{{asset('assets/images/avatar-1.png')}}">
+							<div class="media-body ms-2 text-dark align-items-center d-none d-lg-block">
+								<span class="mb-0 font-small fw-bold text-gray-900">{{app.user.username}}</span>
+							</div>
+						</div>
+					</a>
+					<div class="dropdown-menu dashboard-dropdown dropdown-menu-end mt-2 py-1" style="width: 20rem;">
+						<a class="dropdown-item d-flex align-items-center" href="#" id="changement_password">
+							<svg class="dropdown-icon text-gray-400 me-2" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+								<path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clip-rule="evenodd"></path>
+							</svg>
+							Changement mot de passe
+						</a>
+
+						<div role="separator" class="dropdown-divider my-1"></div>
+						<a class="dropdown-item d-flex align-items-center" href="{{path('app_logout')}}">
+							<svg class="dropdown-icon text-danger me-2" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
+							</svg>
+							Logout
+						</a>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	{# </div> #}
+</nav>
+</br>
+
+<div class="modal come-from-modal fade" id="modal_changement_password" aria-labelledby="modal-default" style="display: none;" aria-hidden="true">
+<div class="modal-dialog modal-dialog-top" style="width:30%;max-width:1000px !important" role="document">
+	<div class="modal-content" style="border-radius: 14px !important;">
+		<div class="modal-header">
+			<h2 class="modal-title">Modifier mot de passe</h2>
+			<a role="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></a>
+		</div>
+		<div class="modal-body">
+			<form id="form_changement_password">
+				<div class="col-md-12  ">
+					<label class="text-size-12">Mot de passe actuel:</label>
+					<input type="password" class="form-control" name="mdp_current"/>
+				</div>
+				<div class="col-md-12  ">
+					<label class="text-size-12">Mot de passe:</label>
+					<input type="password" class="form-control" name="mdp"/>
+				</div>
+				<div class="col-md-12  ">
+					<label class="text-size-12">Confirmation mot de passe:</label>
+					<input type="password" class="form-control" name="mdp_confirmation"/>
+				</div>
+			</form>
+		</div>
+
+		<div class="modal-footer justify-content-start">
+			<button type="submit" class="btn btn-secondary" form="form_changement_password">Enregistre</button>
+			<a type="button" class="btn btn-link" data-bs-dismiss="modal">Fermer</a>
+		</div>
+	</div>
+</div></div>
